@@ -1,0 +1,143 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.banner {
+    width: 80%;    
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.contact {
+    display: inline-block;    
+}
+
+.title {
+    font-style: italic;    
+    font-family: 'Pacifico', cursive;  
+    font-size: large;       
+}
+
+.capital {
+    font-style: italic;
+    font-family: 'Pacifico', cursive;
+    font-size: x-large;
+    margin-left: 2px;
+}
+
+.cuadro {
+    margin-top: 3px;    
+    margin-left: 15px;
+    border-style: ridge;    
+}
+
+.boton {
+    margin-left: 15px;
+    background-color: plum;
+    width: 70px;
+    height: 20px;
+    font-size: 10px;
+    font: bolder;
+    color: white;
+    border-style: hidden;
+    border-radius: 7%;   
+}
+
+.redes {
+    text-align: right;
+    margin-right: 10%;    
+}
+
+.fab.fa-twitter {
+    font-size: 25px;
+    color: plum;
+}
+
+.fab.fa-instagram {
+    font-size: 25px;
+    color: plum;
+    margin-left: 20px;
+}
+
+.fab.fa-facebook-square {
+    font-size: 25px;
+    color: plum;
+    margin-left: 20px;
+}
+
+.pie {
+    text-align-last: unset;
+    margin-top: 120px;    
+}
+
+.text {
+    display: inline-block;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+}
+
+.mail, .contact1 {
+    display: inline-block;
+    color: rgb(223, 138, 223);
+    font-size: 12px;
+    margin-left: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font: bolder;
+}
+
+@media (max-width: 800px) {  
+
+    .banner {
+        width: 90%;    
+        margin-left: 5%;
+        margin-right: 5%;
+    }    
+
+    .title {
+        font-size: 22px;
+        display: block;
+        line-height: 0.3;
+        margin-top: 50px;        
+    }    
+
+    .cuadro {
+        margin-left: 5px;
+        display: inline-block;
+        width: 200px;
+        height: 25px;
+        line-height: 0.3;
+    }
+    
+    .boton { 
+        margin-left: 17px;
+        display: inline-block;
+        width: 100px;
+        height: 30px;      
+        line-height: 0.3;                    
+    }
+
+    .redes{
+        display: block;
+        text-align: center;
+        margin-top: 35px;  
+        margin-left: 20%;
+        margin-right: 20%;      
+    }
+    .fab.fa-twitter, .fab.fa-instagram, .fab.fa-facebook-square {
+        font-size: 45px; 
+    }
+
+    .text, .contact1 {        
+        font-size: 12px;        
+        font: bolder;   
+        margin-top: 5px;     
+    }
+    
+    .text {
+         font-family: 'Mukta', sans-serif;
+    }
+}
+
+
+
