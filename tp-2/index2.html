@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css">   
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Pangolin" rel="stylesheet">
+</head>
+<body>
+    <section class="container">
+            <form id="home" class="home">
+                <h2>Memotest</h2>
+                <p>Hola <i class="em em-raised_hand_with_fingers_splayed"></i>! Vamos a jugar al Memotest <br>Pero antes de empezar..... <br> Cual es tu nombre <i class="em em-question"></i></p>
+                <input id="logueo" class="logueo" placeholder="Tu nombre" type="text">    
+                <p>Con que dificultad te gustaria jugar ??</p>
+                <div id="niveles">
+                    <ul id="botones">
+                        <li><button class="boton" id="boton1">FACIL</button></li>
+                        <li><button class="boton" id="boton2">INTERMEDIO</button></li>
+                        <li><button class="boton" id="boton3">EXPERTO</button></li>
+                    </ul>
+                </div>    
+                <div id="error" class="oculto">
+                    <p class="botonError">UPPS...El nombre es requerido</p>
+                </div>             
+            </form>
+    </section>
+    <section id="tablero" class="oculto">
+        <div class="tablero">
+            <div class="encabezadoTablero">
+                <h2>Memotest</h2>
+                <div class="juego"></div>
+        </div>
+        <div class="fichas">
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+            <div>
+                <img class="tapada" src="imagenes/tapada.jpg" alt="">
+            </div>
+        </div>
+        <div class="intentos" id="intentos">
+            <p class="text">Intentos:</p>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/index2.js"></script>
+</body>
+</html>
