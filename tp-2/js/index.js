@@ -1,45 +1,15 @@
-var memotest = {
-  nombre: "",
-  dificultad: 0
-}
-
-var intentosRestantes = 0;
+// Constantes 
 const nivelFacil = 18;
 const nivelIntermedio = 12;
 const nivelExperto = 9;
 
-// Funcion de logueo.
-
-$('.boton').on('click',function(e) {
-  e.preventDefault();
-  var logueo = $('#logueo').val();
-
-  if (logueo.length == 0 || logueo == undefined){
-    $('#error').removeClass('oculto');
-    setTimeout(function() {
-      $('#error').addClass('oculto');
-    }, 3000)
-  } else {
-
-    var dificultad = e.target.id;
-
-    if (dificultad == "facil") {
-      intentosRestantes = nivelFacil;
-    } else if (dificultad == "intermedio") {
-      intentosRestantes = nivelIntermedio;
-    } else {
-      intentosRestantes = nivelExperto;
-    }
-    $('.container').addClass('oculto');
-    $('#tablero').removeClass('oculto');
-    $('#hola').html(logueo);
-    $('#intentos').html(intentosRestantes);
-    $('#intentosTit').html(intentosRestantes);
-    $('#nombreNivel').html(e.target.id);
-  }
-})
-
-
+// Variables
+var nombre = "";
+var dificultad = 0;
+var intentosRestantes = 0;
+var paresEncontrados = 0;
+var firstCard = null;
+var secondCard = null;
 var cards = [
   "imagenes/alce.jpg",
   "imagenes/alce.jpg",
@@ -55,6 +25,56 @@ var cards = [
   "imagenes/zapas.jpg"
 ]
 
+// Elementos
+var inputNombre = $('#nombre');
+var botonesDificultad = $('.botonDificultad');
+var tarjetas = $('.tarjeta');
+var error = $('#error');
+var sectionInicio = $('.inicio');
+var tablero = $('#tablero');
+
+// Funcion de logueo e inicio
+botonesDificultad.on('click', function(e) {
+  e.preventDefault();
+  nombre = inputNombre.val();
+  
+  if (nombre.length == 0 || nombre == undefined) {
+    showError();
+  } else {
+
+    var dificultadId = e.target.id;
+
+    setDificultad(dificultadId);
+    ocultarElementos(sectionInicio);
+    mostrarElementos(tablero);
+
+    $('#hola').html(nombre);
+    $('#intentos').html(intentosRestantes);
+    $('#intentosTit').html(intentosRestantes);
+    $('#nombreNivel').html(e.target.id);
+  }
+})
+
+// Funcion que muestra error de input vacio
+
+function showError() {
+  mostrarElementos(error);
+    setTimeout(function() {
+      ocultarElementos(error);
+    }, 3000)
+}
+
+// Funcion que indica cuantos intentos hay por nivel
+
+function setDificultad(dificultadId) {
+  if (dificultadId == "facil") {
+    intentosRestantes = nivelFacil;
+  } else if (dificultadId == "intermedio") {
+    intentosRestantes = nivelIntermedio;
+  } else {
+    intentosRestantes = nivelExperto;
+  }
+}
 
 
 // Funcion que orderna los elementos de manera aleatoria.
@@ -66,16 +86,15 @@ function shuffle(a) {
   }
   return a;
 }
-
 cards = shuffle(cards);
-var tapadas = $('.tapada');
-var firstCard = null;
-var secondCard = null;
 
-// Funcion que agrega la imagen de atras de la tapada.
+// Funcion juego
 
-tapadas.on('click', function(e){
-  var indice = tapadas.index(e.target);
+tarjetas.on('click', tocarCarta);
+
+function tocarCarta(e){
+  
+  var indice = tarjetas.index(e.target);
   $('#' + e.target.id).attr('src', cards[indice]);
   
   if (firstCard == null) {
@@ -90,6 +109,7 @@ tapadas.on('click', function(e){
       secondCard.off();
       firstCard = null;
       secondCard = null;
+      paresEncontrados ++
     } else {
       setTimeout(function(){
         firstCard.attr('src', 'imagenes/tapada.jpg');
@@ -98,60 +118,86 @@ tapadas.on('click', function(e){
         secondCard = null;
       },1000);
     }
-
+    
     intentosRestantes--;
     $('#intentos').html(intentosRestantes);
-  } 
+  }
+
+  if (paresEncontrados == 6 && intentosRestantes >= 0) {
+    var tablero = $("#tablero");
+    var rankingGanador = $("#rankingGanador");
+    mostrarElemento(tablero);
+    mostrarElementos(rankingGanador);
+  }
+  if (paresEncontrados < 6 && intentosRestantes == 0) {
+    var rankingPerdedor = $("#rankingPerdedor"); 
+    mostrarElemento(tablero);
+    mostrarElementos(rankingPerdedor);
+  }
+}
+
+// Funcion para volver al inicio y volver a jugar
+
+$('.botonVolver').on('click',function(e) {
+  var rankingGanador = $("#rankingGanador");
+  var rankingPerdedor = $("#rankingPerdedor"); 
+  ocultarElementos(rankingGanador, rankingPerdedor);
+  
+  ocultarElemento(sectionInicio);
+  mostrarElementos(sectionInicio);
+
+  ocultarElementos(tablero);
+  ocultarElemento(tablero);
+  newGame();
+  cards = shuffle(cards);
 })
 
+function newGame () {
+  nombre = "";
+  dificultad = 0;
+  intentosRestantes = 0;
+  paresEncontrados = 0;
+  $('#nombre').val("");
+  tarjetas.attr('src', 'imagenes/tapada.jpg');
+  tarjetas.on('click', tocarCarta);
+}
+
+
+// Funcion para agregar clase oculto y remover clase oculto
+
+function ocultarElementos(...jqElements) {
+  for(var i = 0; i < jqElements.length; i++) {
+    if (jqElements[i] != null || jqElements[i] != undefined) {
+      jqElements[i].addClass('oculto');
+    }
+  }
+}
+
+function mostrarElementos(...jqElements) {
+  for(var i = 0; i < jqElements.length; i++) {
+    if (jqElements[i] != null || jqElements[i] != undefined) {
+      jqElements[i].removeClass('oculto');
+    }
+  }
+}
+function mostrarElemento(...jqElements) {
+  for(var i = 0; i < jqElements.length; i++) {
+    if (jqElements[i] != null || jqElements[i] != undefined) {
+      jqElements[i].addClass('opacity');
+    }
+  }
+}
+
+function ocultarElemento(...jqElements) {
+  for(var i = 0; i < jqElements.length; i++) {
+    if (jqElements[i] != null || jqElements[i] != undefined) {
+      jqElements[i].removeClass('opacity');
+    }
+  }
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Funcion que agrega la imagen de atras de la tapada.
-// $('.tapada').on('click', function(e) {
-//   const imgId = e.target.id
-//   const id = $('#' + imgId).attr('data-img')
-//   $('#' + imgId).attr('src', desordenado[id - 1])
- 
-//   // var primerClick
-  
-//   var clicks = 0;
-
-//   $('img').on('click', function() {
-//    clicks = clicks + 1;
-//    if (clicks == 1) {
-//      var id = $(this).attr('id')
-//      var img = $(this).attr('data-img')
-//      primerClick = {
-//        id: id,
-//        img: img
-//      }
-//    } else {
-//      if (primerClick.img == $(this).attr('data-img')) {
-//        console.log('iguales')
-//      } else {
-//        console.log('distintas')
-//      }
-//      //COMPARACION
-//      clicks = 0
-//    }
-//   })
-// })
 
 
 
