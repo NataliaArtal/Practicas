@@ -2,6 +2,7 @@
 const nivelFacil = 18;
 const nivelIntermedio = 12;
 const nivelExperto = 9;
+const lsRankingKey = "memotest-ranking";
 
 // Variables
 var nombre = "";
@@ -10,6 +11,7 @@ var intentosRestantes = 0;
 var paresEncontrados = 0;
 var firstCard = null;
 var secondCard = null;
+var ranking = [];
 var cards = [
   "imagenes/alce.jpg",
   "imagenes/alce.jpg",
@@ -32,6 +34,8 @@ var tarjetas = $('.tarjeta');
 var error = $('#error');
 var sectionInicio = $('.inicio');
 var tablero = $('#tablero');
+var lsRankingString = localStorage.getItem(lsRankingKey);
+
 
 // Funcion de logueo e inicio
 botonesDificultad.on('click', function(e) {
@@ -93,23 +97,27 @@ cards = shuffle(cards);
 tarjetas.on('click', tocarCarta);
 
 function tocarCarta(e){
-  
+  tarjetas.addClass('tarjeta.flip')
   var indice = tarjetas.index(e.target);
   $('#' + e.target.id).attr('src', cards[indice]);
-  
+  // $('#').addClass('rotarClick');
   if (firstCard == null) {
     firstCard = $(this);
   } else {
     secondCard = $(this);
   }
-
+ 
+  
   if(firstCard !== null && secondCard !== null) {
     if (firstCard.attr('src') == secondCard.attr('src')) {
+      firstCard.addClass('color');
+      secondCard.addClass('color');
       firstCard.off();
       secondCard.off();
       firstCard = null;
       secondCard = null;
       paresEncontrados ++
+      
     } else {
       setTimeout(function(){
         firstCard.attr('src', 'imagenes/tapada.jpg');
@@ -136,31 +144,40 @@ function tocarCarta(e){
   }
 }
 
+// // si el string NO es null y el string NO esta vacio
+// if (lsRankingString != null && lsRankingString != "") {
+//   // lo parseo y lo convierto en un array de objetos de ranking
+//   // y lo guardo en la variable "ranking"
+//   ranking = JSON.parse(lsRankingString);
+// }
+// console.log(ranking)
+
+
 // Funcion para volver al inicio y volver a jugar
 
 $('.botonVolver').on('click',function(e) {
-  var rankingGanador = $("#rankingGanador");
-  var rankingPerdedor = $("#rankingPerdedor"); 
-  ocultarElementos(rankingGanador, rankingPerdedor);
-  
-  ocultarElemento(sectionInicio);
-  mostrarElementos(sectionInicio);
-
-  ocultarElementos(tablero);
-  ocultarElemento(tablero);
-  newGame();
-  cards = shuffle(cards);
+  // var rankingGanador = $("#rankingGanador");
+  // var rankingPerdedor = $("#rankingPerdedor"); 
+  // ocultarElementos(rankingGanador, rankingPerdedor);
+  // ocultarElemento(sectionInicio);
+  // mostrarElementos(sectionInicio);
+  // ocultarElementos(tablero);
+  // ocultarElemento(tablero);
+  // cards = shuffle(cards);
+  location.reload();
 })
 
-function newGame () {
-  nombre = "";
-  dificultad = 0;
-  intentosRestantes = 0;
-  paresEncontrados = 0;
-  $('#nombre').val("");
-  tarjetas.attr('src', 'imagenes/tapada.jpg');
-  tarjetas.on('click', tocarCarta);
-}
+// function newGame () {
+  
+//   // nombre = "";
+//   // dificultad = 0;
+//   // intentosRestantes = 0;
+//   // paresEncontrados = 0;
+//   // $('#nombre').val("");
+//   // tarjetas.attr('src', 'imagenes/tapada.jpg');
+//   // tarjetas.on('click', tocarCarta);
+//   // tarjetas.removeClass('color');
+// }
 
 
 // Funcion para agregar clase oculto y remover clase oculto
@@ -197,6 +214,26 @@ function ocultarElemento(...jqElements) {
 }
 
 
+
+// defino la constante que guarda la key que quiero usar para
+// traer y guardar el ranking en LocalStorage
+// const lsRankingKey = "memotest-ranking"
+
+// creo el array vacio de info de partida donde voy a guardar y
+// actualizar la info del ranking
+// var ranking = [];
+
+// me traigo el ranking de local storage.
+// >>> ME DEVUELVE UN STRING
+// var lsRankingString = localStorage.getItem(lsRankingKey);
+
+
+// // si el string NO es null y el string NO esta vacio
+// if (lsRankingString != null && lsRankingString != "") {
+//   // lo parseo y lo convierto en un array de objetos de ranking
+//   // y lo guardo en la variable "ranking"
+//   ranking = JSON.parse(lsRankingString);
+// }
 
 
 
