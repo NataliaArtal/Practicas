@@ -90,6 +90,10 @@
         </div>
     </section>
     <section id="rankingGanador" class="oculto ">
+            <div class="pyro">
+                <div class="before"></div>
+                <div class="after"></div>
+            </div>
         <div class="ranking1">
             <div class="containerRanking">
                 <div class="textoRanking">
@@ -99,30 +103,23 @@
                 <div class="botonJuego">
                     <button class="botonVolver">Volver a jugar</button>
                 </div>
-                <div class="cuadro">
-                    <div class="cuadro1">
-                        <span class="contenido">Nombre</span>
-                        <ul id="nom"></ul>
-                    </div>
-                    <hr class="v"/>
-                    <div class="cuadro1">
-                        <span class="contenido">Nivel</span>
-                        <ul id="nombreNivel"></ul>
-                    </div>
-                    <hr class="v" />
-                    <div class="cuadro1">
-                        <span class="contenido">Intentos</span>
-                        <ul id="intentosTit"></ul>
-                    </div>
-                </div>
+                <div class="tabla">
+                    <table>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Nivel</th>
+                            <th>Intentos</th>
+                        </tr>
+                    </table>
+                </div>    
             </div>
         </div>
     </section>
-    <section id="rankingPerdedor" class="oculto ">
+    <section id="rankingPerdedor" class="oculto">
         <div class="ranking2">
             <div class="containerEnd">
                 <div class="textoEnd">
-                    <div>Upssss! <i class="em em--1"></i> Perdiste!!!</div>
+                    <div> Upssss! <i class="em em--1"></i> Perdiste!!!</div>
                     <div> Pero.... podes volver a jugar !!</div>
                 </div>
                 <div class="botonJuego">
@@ -132,7 +129,6 @@
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src ="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

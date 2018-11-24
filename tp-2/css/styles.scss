@@ -4,6 +4,9 @@ body{
     font-family: 'Pangolin', cursive;
     font-size: 15px;
     position: relative;
+    margin:0;
+    padding:0;
+    overflow: hidden;
 }
 
 .color {
@@ -178,17 +181,19 @@ h2 {
     width: 50%;
     margin-left: 25%;
     margin-bottom: 2px;
-    transform: rotateY(180deg);
     .tarjeta {
         width: 100px;
         height: 100px;
         border: solid 2px rgb(243, 152, 47);;
         margin: 4px;
-        transform-style: preserve-3d;
-        transition: all 0.5s linear;
     }
 }
 
+.girar {
+    transform: rotateY(1080deg);
+    transition: all 1s ease-in-out;
+ }
+    
 .ranking1, .ranking2 {
     display: block;
     display: flex;
@@ -200,20 +205,20 @@ h2 {
 
 .containerRanking, .containerEnd {
     text-align: center;
-    border: solid 10px black;
-    width: 25%;   
+    border: solid 4px black;
+    width: 20%;   
     height: auto;
-    border-radius: 9%;
+    border-radius: 5px;;
     background-color: antiquewhite;    
     padding: 2%;   
-    top: 10px;
+    top: 40px;
     position: absolute;
 }
 
 .botonJuego {
     width: 50%;
     height: 40px;
-    margin-left: 80px;
+    margin-left: 70px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -229,28 +234,143 @@ h2 {
 }
 
 .opacity {
-    filter: opacity(50%);
+    filter: opacity(80%);
 }
 
-.cuadro {
-    display: flex;
-    justify-content: space-around;
-    border: solid 3px black;
-    border-radius: 5px;
-    .contenido {
-        text-align: center;
-        margin-left: 2px;
-        margin-right: 2px;
+table {
+    color: rgb(243, 152, 47);
+    border-collapse: collapse;
+    width: 100%;
+    td, th {
+        border: 2px solid #272525;
+        padding: 8px;
     }
 }
-hr.v{
-    width: 1px;
-    height:auto;
-    color:  black;
+
+td {
+    text-align: left;
 }
 
- 
+th {
+    text-align: center;
+}
 
+$particles: 50;
+$width: 500;
+$height: 500;
 
+// Create the explosion...
+$box-shadow: ();
+$box-shadow2: ();
+@for $i from 0 through $particles {
+  $box-shadow: $box-shadow,
+               random($width)-$width / 2 + px
+               random($height)-$height / 1.2 + px
+               hsl(random(360), 100, 50);
+  $box-shadow2: $box-shadow2, 0 0 #fff
+}
+@mixin keyframes ($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-ms-keyframes #{$animationName} {
+        @content;
+    }
+
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin animation-delay ($settings) {
+    -moz-animation-delay: $settings;
+    -webkit-animation-delay: $settings;
+    -o-animation-delay: $settings;
+    -ms-animation-delay: $settings;
+    animation-delay: $settings;
+}
+
+@mixin animation-duration ($settings) {
+    -moz-animation-duration: $settings;
+    -webkit-animation-duration: $settings;
+    -o-animation-duration: $settings;
+    -ms-animation-duration: $settings;
+    animation-duration: $settings;
+}
+
+@mixin animation ($settings) {
+    -moz-animation: $settings;
+    -webkit-animation: $settings;
+    -o-animation: $settings;
+    -ms-animation: $settings;
+    animation: $settings;
+}
+
+@mixin transform ($settings) {
+    transform: $settings;
+    -moz-transform: $settings;
+    -webkit-transform: $settings;
+    -o-transform: $settings;
+    -ms-transform: $settings;
+}
+
+.pyro > .before, .pyro > .after {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: $box-shadow2;
+  @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
+}
+    
+.pyro > .after {
+  @include animation-delay((1.25s, 1.25s, 1.25s));
+  @include animation-duration((1.25s, 1.25s, 6.25s));
+}
+        
+@include keyframes(bang) {
+  to {
+    box-shadow:$box-shadow;
+  }
+}
+    
+@include keyframes(gravity)  {
+  to {
+    @include transform(translateY(200px));
+    opacity: 0;
+  }
+}
+    
+@include keyframes(position) {
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%;
+  }
+  20%, 39.9% {
+    margin-top: 40%;
+    margin-left: 30%;
+  }
+  40%, 59.9% {  
+    margin-top: 20%;
+    margin-left: 70%
+  }
+  60%, 79.9% {  
+    margin-top: 30%;
+    margin-left: 20%;
+  }
+  80%, 99.9% {  
+    margin-top: 30%;
+    margin-left: 80%;
+  }
+}
 
 

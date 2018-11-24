@@ -97,17 +97,16 @@ cards = shuffle(cards);
 tarjetas.on('click', tocarCarta);
 
 function tocarCarta(e){
-  tarjetas.addClass('tarjeta.flip')
+  $(this).addClass('girar');
   var indice = tarjetas.index(e.target);
   $('#' + e.target.id).attr('src', cards[indice]);
-  // $('#').addClass('rotarClick');
   if (firstCard == null) {
     firstCard = $(this);
   } else {
     secondCard = $(this);
+    
   }
  
-  
   if(firstCard !== null && secondCard !== null) {
     if (firstCard.attr('src') == secondCard.attr('src')) {
       firstCard.addClass('color');
@@ -121,10 +120,12 @@ function tocarCarta(e){
     } else {
       setTimeout(function(){
         firstCard.attr('src', 'imagenes/tapada.jpg');
+        firstCard.removeClass('girar');
         secondCard.attr('src', 'imagenes/tapada.jpg');
+        secondCard.removeClass('girar');
         firstCard = null;
         secondCard = null;
-      },1000);
+      },1300);
     }
     
     intentosRestantes--;
@@ -134,10 +135,14 @@ function tocarCarta(e){
   if (paresEncontrados == 6 && intentosRestantes >= 0) {
     var tablero = $("#tablero");
     var rankingGanador = $("#rankingGanador");
-    mostrarElemento(tablero);
-    mostrarElementos(rankingGanador);
+    setTimeout(function(){
+      mostrarElemento(tablero);
+      mostrarElementos(rankingGanador);
+    },1300);
+    
   }
   if (paresEncontrados < 6 && intentosRestantes == 0) {
+    var tablero = $("#tablero");
     var rankingPerdedor = $("#rankingPerdedor"); 
     mostrarElemento(tablero);
     mostrarElementos(rankingPerdedor);
