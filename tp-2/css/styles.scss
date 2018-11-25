@@ -159,7 +159,7 @@ h2 {
     }
 }
 
-.intentosTit {
+.intentosTitulo {
     color: rgb(24, 174, 211);
     .nivelNombre {
         color: rgb(24, 174, 211);
@@ -234,7 +234,8 @@ h2 {
 }
 
 .opacity {
-    filter: opacity(80%);
+    opacity: 0.5;
+    filter: alpha(opacity=50);
 }
 
 table {
@@ -373,4 +374,100 @@ $box-shadow2: ();
   }
 }
 
+@media (max-width:600px) {
+  
+    .home {
+        text-align: center;
+        border: solid 12px black;
+        width: 35%;   
+        height: auto;
+        border-radius:30px; 
+        margin-top: 7%;
+    }
 
+    .botones {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.5%;          
+        li {
+            list-style: none;
+            padding: 3%; 
+            width: 150px;
+            height: 30px;      
+            text-align: center;
+            margin-top: 3px;
+        } 
+    } 
+
+    .botonDificultad{    
+        display: block;
+        width: 100%;
+        height: 120%;    
+    }
+    .error {
+        width: 150px;
+        height: 30px;      
+        margin-left: 4%;
+        .botonError {
+            border-radius: 8px;    
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+            display: block;
+            width: 100%;
+            height: 120%;
+        }
+    }
+    .saludo {
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+        .em.em-question {
+            font-size: 10px;
+        }
+    }
+
+    .logueo {
+        width: 100%;
+        margin-right: 6%;  
+    }
+
+    .encabezadoTablero {
+        left: 26%;
+    }
+
+    .tablero {
+        border: solid 14px black;
+        width: 60%;
+        height: auto;
+        border-radius: 20px;
+        margin-left: 7%;
+    }
+
+    .fichas {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-left: 0%;
+        margin-bottom: 2px;
+        .tarjeta {
+            width: 90px;
+            height: 90px;
+            border: solid 2px rgb(243, 152, 47);;
+            margin: 4px;
+        }
+     }
+
+     .containerRanking, .containerEnd {
+        left: 22%;
+        width: 40%;   
+        height: auto;
+    }
+    
+    
+
+}
