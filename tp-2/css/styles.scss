@@ -374,12 +374,12 @@ $box-shadow2: ();
   }
 }
 
-@media (max-width:600px) {
+@media (max-width:750px) {
   
     .home {
         text-align: center;
         border: solid 12px black;
-        width: 35%;   
+        width: 28%;   
         height: auto;
         border-radius:30px; 
         margin-top: 7%;
@@ -441,7 +441,7 @@ $box-shadow2: ();
 
     .tablero {
         border: solid 14px black;
-        width: 60%;
+        width: 45%;
         height: auto;
         border-radius: 20px;
         margin-left: 7%;
@@ -458,7 +458,7 @@ $box-shadow2: ();
             width: 90px;
             height: 90px;
             border: solid 2px rgb(243, 152, 47);;
-            margin: 4px;
+            margin: 2px;
         }
      }
 
