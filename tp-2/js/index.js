@@ -9,6 +9,7 @@ var nombre = "";
 var dificultad = "";
 var intentosRestantes = 0;
 var paresEncontrados = 0;
+var clickIntento = 0;
 var firstCard = null;
 var secondCard = null;
 // var ranking = [];
@@ -112,9 +113,9 @@ function tocarCarta(e){
     firstCard = $(this);
   } else {
     secondCard = $(this);
-    
-  }
- 
+  }  
+  clickIntento ++;
+  
   if(firstCard !== null && secondCard !== null) {
     if (firstCard.attr('src') == secondCard.attr('src')) {
       firstCard.addClass('color');
@@ -133,7 +134,7 @@ function tocarCarta(e){
         secondCard.removeClass('girar');
         firstCard = null;
         secondCard = null;
-      },1300);
+      },1100);
     }
     
     intentosRestantes--;
