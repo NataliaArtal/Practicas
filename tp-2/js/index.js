@@ -227,8 +227,6 @@ function dibujarRanking(ranking) {
 } 
 
 
-
-
 // Funcion para agregar clase oculto y remover clase oculto
 
 function hideElements(...jqElements) {

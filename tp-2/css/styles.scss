@@ -115,7 +115,7 @@ h2 {
     top: 10px;
     left: 10%;
     right: 10%;
-    width: 80;
+    width: 80%;
     height: auto;
     border-radius: 20px;
     background-color:rgb(243, 236, 236);  
@@ -374,7 +374,7 @@ $box-shadow2: ();
   }
 }
 
-@media (max-width:750px) {
+@media (max-width:700px) {
   
     .home {
         text-align: center;
@@ -409,7 +409,7 @@ $box-shadow2: ();
     .error {
         width: 170px;
         height: 30px;      
-        margin-left: 23px;
+        margin-right: 15px;
         .botonError {
             border-radius: 8px;    
             display: flex;
@@ -441,11 +441,12 @@ $box-shadow2: ();
 
     .tablero {
         border: solid 14px black;
-        width: 320px;
+        width: 47%;
         height: auto;
         border-radius: 20px;
-        margin-left: 100px;
-        margin-top: 15px;
+        left: 0;
+        right: 0;
+        margin: auto;  
     }
 
     .fichas {
@@ -464,11 +465,10 @@ $box-shadow2: ();
      }
 
      .containerRanking, .containerEnd {
-        right: 36%;
+        margin-top: 10px;
+        left: 190px;
         width: 40%;   
         height: auto;
     }
     
-    
-
 }
