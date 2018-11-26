@@ -394,7 +394,7 @@ $box-shadow2: ();
         li {
             list-style: none;
             padding: 3%; 
-            width: 150px;
+            width: 170px;
             height: 30px;      
             text-align: center;
             margin-top: 3px;
@@ -407,9 +407,9 @@ $box-shadow2: ();
         height: 120%;    
     }
     .error {
-        width: 150px;
+        width: 170px;
         height: 30px;      
-        margin-left: 4%;
+        margin-left: 23px;
         .botonError {
             border-radius: 8px;    
             display: flex;
@@ -441,10 +441,11 @@ $box-shadow2: ();
 
     .tablero {
         border: solid 14px black;
-        width: 45%;
+        width: 320px;
         height: auto;
         border-radius: 20px;
-        margin-left: 7%;
+        margin-left: 100px;
+        margin-top: 15px;
     }
 
     .fichas {
@@ -463,7 +464,7 @@ $box-shadow2: ();
      }
 
      .containerRanking, .containerEnd {
-        left: 22%;
+        right: 36%;
         width: 40%;   
         height: auto;
     }
