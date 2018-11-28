@@ -117,6 +117,7 @@ function tocarCarta(e){
   clickIntento ++;
   
   if(firstCard !== null && secondCard !== null) {
+    tarjetas.off();
     if (firstCard.attr('src') == secondCard.attr('src')) {
       firstCard.addClass('color');
       secondCard.addClass('color');
@@ -125,7 +126,6 @@ function tocarCarta(e){
       firstCard = null;
       secondCard = null;
       paresEncontrados ++
-      
     } else {
       setTimeout(function(){
         firstCard.attr('src', 'imagenes/tapada.jpg');
@@ -134,12 +134,14 @@ function tocarCarta(e){
         secondCard.removeClass('girar');
         firstCard = null;
         secondCard = null;
+        tarjetas.on('click', tocarCarta);
       },1100);
     }
     
     intentosRestantes--;
     intentosTablero.html(intentosRestantes);
   }
+  
 
   if (paresEncontrados == 6 && intentosRestantes >= 0) {
     var ranking = calcularRanking({
