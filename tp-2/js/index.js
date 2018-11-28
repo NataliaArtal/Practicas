@@ -44,6 +44,7 @@ var rankingGanador = $("#rankingGanador");
 var rankingPerdedor = $("#rankingPerdedor"); 
 var botonVolver = $('.botonVolver');
 var tablaRanking = $('table');
+var resultado = $('#result');
 
 // Funcion de logueo e inicio
 botonesDificultad.on('click', function(e) {
@@ -151,6 +152,7 @@ function tocarCarta(e) {
       intentos: calcularPuntaje()
     });
     dibujarRanking(ranking);
+    resultado.html(calcularPuntaje());
 
     setTimeout(function(){
       addOpacity(tablero);
