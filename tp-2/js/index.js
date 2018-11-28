@@ -134,12 +134,12 @@ function tocarCarta(e){
         secondCard.removeClass('girar');
         firstCard = null;
         secondCard = null;
-        tarjetas.on('click', tocarCarta);
       },1100);
     }
     
     intentosRestantes--;
     intentosTablero.html(intentosRestantes);
+    tarjetas.on('click', tocarCarta);
   }
   
 
