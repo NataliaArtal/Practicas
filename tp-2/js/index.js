@@ -105,7 +105,7 @@ cards = shuffle(cards);
 
 tarjetas.on('click', tocarCarta);
 
-function tocarCarta(e){
+function tocarCarta(e) {
   $(this).addClass('girar');
   var indice = tarjetas.index(e.target);
   $('#' + e.target.id).attr('src', cards[indice]);
@@ -114,19 +114,21 @@ function tocarCarta(e){
   } else {
     secondCard = $(this);
   }  
-  clickIntento ++;
+  clickIntento++;
   
   if(firstCard !== null && secondCard !== null) {
-    tarjetas.off();
     if (firstCard.attr('src') == secondCard.attr('src')) {
+      tarjetas.off();
       firstCard.addClass('color');
       secondCard.addClass('color');
-      firstCard.off();
-      secondCard.off();
+      // firstCard.off();
+      // secondCard.off();
       firstCard = null;
       secondCard = null;
-      paresEncontrados ++
+      paresEncontrados++;
+      tarjetas.on('click', tocarCarta);
     } else {
+      tarjetas.off();
       setTimeout(function(){
         firstCard.attr('src', 'imagenes/tapada.jpg');
         firstCard.removeClass('girar');
@@ -134,12 +136,11 @@ function tocarCarta(e){
         secondCard.removeClass('girar');
         firstCard = null;
         secondCard = null;
+        tarjetas.on('click', tocarCarta);
       },1100);
     }
-    
     intentosRestantes--;
     intentosTablero.html(intentosRestantes);
-    tarjetas.on('click', tocarCarta);
   }
   
 
