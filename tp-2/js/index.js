@@ -118,7 +118,7 @@ function tocarCarta(e) {
   clickIntento++;
   
   if(firstCard !== null && secondCard !== null) {
-    if (firstCard.attr('src') == secondCard.attr('src')) {
+    if  (firstCard.attr('src') == secondCard.attr('src') && firstCard.attr('id') !== secondCard.attr('id')) {
       tarjetas.off();
       firstCard.addClass('color');
       secondCard.addClass('color');
