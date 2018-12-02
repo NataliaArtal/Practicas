@@ -486,6 +486,13 @@ $box-shadow2: ();
         }
      }
 
+     .botonJuego {
+        width: 50%;
+        height: 40px;
+        margin-left: 55px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 
      .containerRanking, .containerEnd {
         margin-top: 10px;
@@ -581,6 +588,14 @@ $box-shadow2: ();
             margin: 2px;
         }
      }
+
+     .botonJuego {
+        width: 50%;
+        height: 40px;
+        margin-left: 55px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 
     //  .ranking1, .ranking2 {
     //     display: block;
