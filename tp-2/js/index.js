@@ -46,6 +46,8 @@ var botonVolver = $('.botonVolver');
 var tablaRanking = $('table');
 var resultado = $('#result');
 
+
+
 // Funcion de logueo e inicio
 botonesDificultad.on('click', function(e) {
   e.preventDefault();
