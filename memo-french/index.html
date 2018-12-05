@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Memotest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css">   
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Pangolin" rel="stylesheet">
+</head>
+<body>
+    <section class="inicio">
+            <form id="home" class="home">
+                <h2>Memo-French</h2>
+                <div class="saludo">
+                    <div>Hola <i class="em em-dog2"></i></i>! Vamos a jugar al Memotest</div>
+                    <div>Pero antes de empezar.....</div>
+                    <div> Cual es tu nombre <i class="em em-question"></i></div>
+                    <input id="nombre" class="logueo" placeholder="Tu nombre" type="text">    
+                    <div>Con que dificultad te gustaria jugar ?</div>
+                </div>  
+                <div id="niveles">
+                    <ul class="botones">
+                        <li><button class="botonDificultad" id="facil">FACIL</button></li>
+                        <li><button class="botonDificultad" id="intermedio">INTERMEDIO</button></li>
+                        <li><button class="botonDificultad" id="experto">EXPERTO</button></li>
+                    </ul>
+                </div>    
+                <div id="error" class="oculto error">
+                    <div class="botonError">
+                       <p>UPPS...El nombre es requerido</p> 
+                    </div>
+                </div>             
+            </form>
+    </section>
+    <section id="tablero" class="oculto">
+        <div class="tablero">
+            <div class="encabezadoTablero">
+                <div class="tituloJuego">
+                    <h2>Memo-French</h2>
+                </div>
+                <div class="texto">
+                    <div class="hola">Hola <span class="hola1" id="hola"></span></div>
+                    <div>Encontra todos los pares en menos de <span class="intentosTitulo" id="intentosTitulo"></span> intentos</div>
+                    <div>Nivel <span class="nombreNivel" id="nombreNivel"></span></div>
+                    <div id="nivel"></div>
+                </div>
+            </div>
+        <div class="fichas">
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="0" id="img-1">
+            </div>
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="1" id="img-2">
+            </div>
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="2" id="img-3">
+            </div>
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="3" id="img-4">
+            </div>
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="4" id="img-5">
+            </div>
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="5" id="img-6">
+            </div>
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="6" id="img-7">
+            </div>
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="7" id="img-8">
+            </div>
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="8" id="img-9">
+            </div>
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="9" id="img-10">
+            </div>
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="10" id="img-11">
+            </div>
+            <div>
+                <img class="tarjeta" src="imagenes/tapas.jpg" data-img="11" id="img-12">
+            </div>
+        </div>
+        <div class="intentos" id="intentos1">
+            <p class="text"> Intentos: <span id="intentos" class="numIntentos"></span></p>
+        </div>
+    </section>
+    <section id="rankingGanador" class="oculto ">
+            <div class="pyro">
+                <div class="before"></div>
+                <div class="after"></div>
+            </div>
+        <div class="ranking1">
+            <div class="containerRanking">
+                <div class="textoRanking">
+                    <div>Ganaste mami <i class="em em-confetti_ball"></i>! con <span class="result" id="result"></span> intentos!!</div>
+                    <div>Ya podes volver a jugar !! Te queremos mucho!!! los 4 fantasticos! Guau Guau</div>
+                </div>
+                <div class="botonJuego">
+                    <button class="botonVolver">Volver a jugar</button>
+                </div>
+                <div class="tabla">
+                    <table>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Nivel</th>
+                            <th>Intentos</th>
+                        </tr>
+                    </table>
+                </div>    
+            </div>
+        </div>
+    </section>
+    <section id="rankingPerdedor" class="oculto">
+        <div class="ranking2">
+            <div class="containerEnd">
+                <div class="textoEnd">
+                    <div> Upssss! <i class="em em--1"></i> Perdiste!!! Pero igual te queremos ma</div>
+                    <div> Pero.... podes volver a jugar !!</div>
+                </div>
+                <div class="botonJuego">
+                    <button class="botonVolver">Volver a jugar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="css/js/index.js"></script>
+</body>
+</html>

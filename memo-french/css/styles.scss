@@ -1,0 +1,626 @@
+body{    
+    background-image: url("../imagenes/tapa.jpg");
+    background-size: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 15px;
+    position: relative;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+
+.color {
+  filter: grayscale(100%);
+}
+
+h2 {
+    font-family: 'Pacifico', cursive;
+    color: rgb(24, 174, 211);
+}
+
+
+.inicio {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    .saludo {
+        line-height: 1.6em;
+    }  
+}
+
+
+.home {
+    text-align: center;
+    border: solid 5px black;
+    width: 25%; 
+    right: 0;
+    left: 0;
+    margin: auto; 
+    height: auto;
+    border-radius: 7%;
+    background-color: rgb(198, 242, 250);    
+    padding: 2%;   
+    top: 10px;
+    position: absolute;   
+    .em.em-hand {
+        font-size: 15px;
+        .em.em-question {
+            font-size: 15px;
+        }
+    }      
+}
+
+.logueo {
+    width: 90%;
+    height: 17px;   
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5%;         
+    li {
+        list-style: none;
+        padding: 2%; 
+        width: 280px;
+        height: 30px;      
+        text-align: center;
+    } 
+}
+
+.botonDificultad{
+    background-color:rgb(17, 2, 58);
+    border-radius: 8px;    
+    font-family: 'Pangolin', cursive;
+    border-style: none;
+    color: white;    
+    display: block;
+    width: 100%;
+    height: 120%;    
+}
+
+.botonDificultad:hover {
+    cursor: pointer;
+} 
+
+.oculto {
+    display: none;
+}
+
+.error {
+    width: 280px;
+    height: 40px;      
+    margin-left: 15%;
+    .botonError {
+        background-color:rgb(230, 182, 230);
+        border-radius: 8px;    
+        font-family: 'Pangolin', cursive;
+        border-style: none;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        color: rgba(94, 17, 74, 0.897);
+        display: block;
+        width: 100%;
+        height: 100%;
+        filter: opacity(0.5);
+    }
+}
+
+.tablero {
+    border: solid 12px black;
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 70%;
+    height: auto;
+    border-radius: 20px;
+    background-color:rgb(243, 236, 236);  
+    // filter: opacity(0.7);
+    background-color:rgba(255,255,255,0.5);
+    .intentos {
+        width: 42%;
+        border: solid 4px rgb(37, 175, 230);
+        border-radius: 7px;
+        background-color:  white; // No puedo sacar el opacity al cuadro este, termine no usando opacity.
+        text-align: center;
+        margin-left: 29%;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 7px;
+        .text {
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        } 
+    }  
+}
+
+.numIntentos {
+    color: rgb(24, 174, 211);
+}
+
+.encabezadoTablero {
+    width: 50%;
+    display: flex;
+    position: relative;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: auto;
+    .texto {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.5em;
+    }
+}
+
+.intentosTitulo {
+    color: rgb(24, 174, 211);
+    .nivelNombre {
+        color: rgb(24, 174, 211);
+    }
+}
+
+.hola {
+    font-size: 14px;
+    .hola1 {
+        color: rgb(24, 174, 211);
+        font-size: 14px;
+    }
+}
+
+.fichas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 2px;
+    .tarjeta {
+        width: 100px;
+        height: 100px;
+        border: solid 2px rgb(243, 152, 47);;
+        margin: 4px;
+    }
+}
+
+.tarjeta:hover {
+    cursor: pointer;
+}
+
+.girar {
+    transform: rotateY(1080deg);
+    transition: all 1s ease-in-out;
+ }
+    
+.ranking1, .ranking2 {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.containerRanking, .containerEnd {
+    text-align: center;
+    border: solid 4px black;
+    width: 20%;   
+    height: auto;
+    border-radius: 5px;;
+    background-color: antiquewhite;    
+    padding: 2%;   
+    top: 40px;
+    position: absolute;
+}
+
+.botonJuego {
+    width: 50%;
+    height: 40px;
+    margin-left: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.botonVolver {
+    background-color:rgb(243, 152, 47);
+    border-radius: 8px;    
+    font-family: 'Pangolin', cursive;
+    border-style: none;
+    color: white;    
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.botonVolver:hover {
+    cursor: pointer;
+}
+
+.opacity {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+table {
+    color: rgb(243, 152, 47);
+    border-collapse: collapse;
+    width: 100%;
+    td, th {
+        border: 2px solid #272525;
+        padding: 8px;
+    }
+}
+
+.result {
+    color: rgb(24, 174, 211);
+}
+
+td {
+    text-align: left;
+}
+
+th {
+    text-align: center;
+}
+
+$particles: 50;
+$width: 500;
+$height: 500;
+
+// Create the explosion...
+$box-shadow: ();
+$box-shadow2: ();
+@for $i from 0 through $particles {
+  $box-shadow: $box-shadow,
+               random($width)-$width / 2 + px
+               random($height)-$height / 1.2 + px
+               hsl(random(360), 100, 50);
+  $box-shadow2: $box-shadow2, 0 0 #fff
+}
+@mixin keyframes ($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-ms-keyframes #{$animationName} {
+        @content;
+    }
+
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin animation-delay ($settings) {
+    -moz-animation-delay: $settings;
+    -webkit-animation-delay: $settings;
+    -o-animation-delay: $settings;
+    -ms-animation-delay: $settings;
+    animation-delay: $settings;
+}
+
+@mixin animation-duration ($settings) {
+    -moz-animation-duration: $settings;
+    -webkit-animation-duration: $settings;
+    -o-animation-duration: $settings;
+    -ms-animation-duration: $settings;
+    animation-duration: $settings;
+}
+
+@mixin animation ($settings) {
+    -moz-animation: $settings;
+    -webkit-animation: $settings;
+    -o-animation: $settings;
+    -ms-animation: $settings;
+    animation: $settings;
+}
+
+@mixin transform ($settings) {
+    transform: $settings;
+    -moz-transform: $settings;
+    -webkit-transform: $settings;
+    -o-transform: $settings;
+    -ms-transform: $settings;
+}
+
+.pyro > .before, .pyro > .after {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: $box-shadow2;
+  @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
+}
+    
+.pyro > .after {
+  @include animation-delay((1.25s, 1.25s, 1.25s));
+  @include animation-duration((1.25s, 1.25s, 6.25s));
+}
+        
+@include keyframes(bang) {
+  to {
+    box-shadow:$box-shadow;
+  }
+}
+    
+@include keyframes(gravity)  {
+  to {
+    @include transform(translateY(200px));
+    opacity: 0;
+  }
+}
+    
+@include keyframes(position) {
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%;
+  }
+  20%, 39.9% {
+    margin-top: 40%;
+    margin-left: 30%;
+  }
+  40%, 59.9% {  
+    margin-top: 20%;
+    margin-left: 70%
+  }
+  60%, 79.9% {  
+    margin-top: 30%;
+    margin-left: 20%;
+  }
+  80%, 99.9% {  
+    margin-top: 30%;
+    margin-left: 80%;
+  }
+}
+
+
+// @media (max-width:500px) {
+//     .github-corner:hover .octo-arm {
+//         animation:none;
+//     }
+//     .github-corner .octo-arm {
+//         animation:octocat-wave 560ms ease-in-out;
+//     }
+// }
+
+
+@media (min-width:300px) and (max-width:500px) {
+
+
+    .home {
+        text-align: center;
+        border: solid 12px black;
+        width: 50%;   
+        height: auto;
+        border-radius:30px; 
+        margin-top: 7%;
+    }
+
+    .botones {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.5%;          
+        li {
+            list-style: none;
+            padding: 3%; 
+            width: 80%;
+            height: 30px;      
+            text-align: center;
+            margin-top: 3px;
+        } 
+    } 
+
+    .botonDificultad{    
+        display: block;
+        width: 100%;
+        height: 120%;    
+    }
+    .error {
+        width: 80%;
+        height: 30px;      
+        right: 0;
+        left: 0;
+        margin: auto;
+        .botonError {
+            border-radius: 8px;    
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+            display: block;
+            width: 100%;
+            height: 120%;
+        }
+    }
+    .saludo {
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+        .em.em-question {
+            font-size: 10px;
+        }
+    }
+
+    .logueo {
+        width: 100%;
+        margin-right: 6%;  
+    }
+
+    .tablero {
+        border: solid 14px black;
+        width: 80%;
+        height: auto;
+        border-radius: 20px;
+        left: 0;
+        right: 0;
+        margin: auto;  
+    }
+
+    .fichas {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-left: 0%;
+        margin-bottom: 2px;
+        .tarjeta {
+            width: 70px;
+            height: 70px;
+            border: solid 2px rgb(243, 152, 47);;
+            margin: 2px;
+        }
+     }
+
+     .botonJuego {
+        width: 50%;
+        height: 40px;
+        margin-left: 55px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+     .containerRanking, .containerEnd {
+        margin-top: 10px;
+        width: 60%;   
+        height: auto;
+    }
+}
+
+@media (min-width:500px) and (max-width:700px) {
+  
+    .home {
+        text-align: center;
+        border: solid 12px black;
+        width: 30%;   
+        height: auto;
+        border-radius:30px; 
+        margin-top: 7%;
+    }
+
+    .botones {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.5%;          
+        li {
+            list-style: none;
+            padding: 3%; 
+            width: 80%;
+            height: 30px;      
+            text-align: center;
+            margin-top: 3px;
+        } 
+    } 
+
+    .botonDificultad{    
+        display: block;
+        width: 100%;
+        height: 120%;    
+    }
+    .error {
+        width: 80%;
+        height: 30px;      
+        right: 0;
+        left: 0;
+        margin: auto;
+        .botonError {
+            border-radius: 8px;    
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+            display: block;
+            width: 100%;
+            height: 120%;
+        }
+    }
+    .saludo {
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+        .em.em-question {
+            font-size: 10px;
+        }
+    }
+
+    .logueo {
+        width: 100%;
+        margin-right: 6%;  
+    }
+
+    .tablero {
+        border: solid 14px black;
+        width: 60%;
+        height: auto;
+        border-radius: 20px;
+        left: 0;
+        right: 0;
+        margin: auto;  
+    }
+
+    .fichas {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-left: 0%;
+        margin-bottom: 2px;
+        .tarjeta {
+            width: 90px;
+            height: 90px;
+            border: solid 2px rgb(243, 152, 47);;
+            margin: 2px;
+        }
+     }
+
+     .botonJuego {
+        width: 50%;
+        height: 40px;
+        margin-left: 55px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    //  .ranking1, .ranking2 {
+    //     display: block;
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: space-around;
+    //     align-items: center;
+    //     position: relative;
+    // }
+
+     .containerRanking, .containerEnd {
+        margin-top: 10px;
+        width: 40%;   
+        height: auto;
+    }
+    
+}
